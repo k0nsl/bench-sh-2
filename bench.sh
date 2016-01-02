@@ -65,22 +65,22 @@ speedtest4 () {
 	echo "---------------------" | tee -a $HOME/bench.log
 	echo "Your public IPv4 is $ipiv" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
-	# Cachefly CDN speed test
-	echo "Location		Provider	Speed"	| tee -a $HOME/bench.log
+	echo "---------------------" | tee -a $HOME/bench.log
+	echo "Speed test"	| tee -a $HOME/bench.log
 	cachefly=$( wget -4 -O /dev/null http://cachefly.cachefly.net/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "CDN			Cachefly	$cachefly" | tee -a $HOME/bench.log
+	echo "Cachefly (CDN): $cachefly" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
-	# United States speed test
+	
 	digitalocean_ams3=$( wget -4 -O /dev/null http://speedtest-ams3.digitalocean.com/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Amsterdam, NL		DigitalOcean		$digitalocean_ams3 " | tee -a $HOME/bench.log
+	echo "DigitalOcean (Amsterdam, NL): $digitalocean_ams3 " | tee -a $HOME/bench.log
 	softlayer_ams3=$( wget -4 -O /dev/null http://speedtest.ams03.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Amsterdam, NL		Softlayer	$softlayer_ams3 " | tee -a $HOME/bench.log
+	echo "Softlayer (Amsterdam, NL): $softlayer_ams3 " | tee -a $HOME/bench.log
 	k0nslNET=$( wget -4 -O /dev/null http://beta.60ych.net/100mbtest 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Rochester, US		k0nslNET01	$k0nslNET " | tee -a $HOME/bench.log
+	echo "CentriLogic (Rochester, US): $k0nslNET " | tee -a $HOME/bench.log
 	buyvm=$( wget -4 -O /dev/null http://speedtest.lu.buyvm.net/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Roost, LU			BuyVM	$buyvm " | tee -a $HOME/bench.log
+	echo "BuyVM (Roost, LU): $buyvm " | tee -a $HOME/bench.log
 	ramnode=$( wget -4 -O /dev/null http://lg.nl.ramnode.com/static/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Alblasserdam, NL		RamNode 	$ramnode " | tee -a $HOME/bench.log
+	echo "RamNode (Alblasserdam, NL): $ramnode " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
