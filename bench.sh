@@ -71,28 +71,16 @@ speedtest4 () {
 	echo "CDN			Cachefly	$cachefly" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	# United States speed test
-	coloatatl=$( wget -4 -O /dev/null http://speed.atl.coloat.com/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Atlanta, GA, US		Coloat		$coloatatl " | tee -a $HOME/bench.log
-	sldltx=$( wget -4 -O /dev/null http://speedtest.dal05.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Dallas, TX, US		Softlayer	$sldltx " | tee -a $HOME/bench.log
-	slwa=$( wget -4 -O /dev/null http://speedtest.sea01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Seattle, WA, US		Softlayer	$slwa " | tee -a $HOME/bench.log
-	slsjc=$( wget -4 -O /dev/null http://speedtest.sjc01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "San Jose, CA, US	Softlayer	$slsjc " | tee -a $HOME/bench.log
-	slwdc=$( wget -4 -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Washington, DC, US	Softlayer 	$slwdc " | tee -a $HOME/bench.log
-	echo "" | tee -a $HOME/bench.log
-	# Asia speed test
-	linodejp=$( wget -4 -O /dev/null http://speedtest.tokyo.linode.com/100MB-tokyo.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Tokyo, Japan		Linode		$linodejp " | tee -a $HOME/bench.log
-	slsg=$( wget -4 -O /dev/null http://speedtest.sng01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Singapore 		Softlayer	$slsg " | tee -a $HOME/bench.log
-	echo "" | tee -a $HOME/bench.log
-	# Europe speed test
-	i3d=$( wget -4 -O /dev/null http://mirror.i3d.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Rotterdam, Netherlands	id3.net		$i3d" | tee -a $HOME/bench.log
-	leaseweb=$( wget -4 -O /dev/null http://mirror.leaseweb.com/speedtest/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Haarlem, Netherlands	Leaseweb	$leaseweb " | tee -a $HOME/bench.log
+	digitalocean_ams3=$( wget -4 -O /dev/null http://speedtest-ams3.digitalocean.com/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Amsterdam, NL		Coloat		$digitalocean_ams3 " | tee -a $HOME/bench.log
+	softlayer_ams3=$( wget -4 -O /dev/null http://speedtest.ams03.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Amsterdam, NL		Softlayer	$softlayer_ams3 " | tee -a $HOME/bench.log
+	slwa=$( wget -4 -O /dev/null http://beta.60ych.net/100mbtest 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Rochester, US		k0nslNET01	$slwa " | tee -a $HOME/bench.log
+	slsjc=$( wget -4 -O /dev/null http://speedtest.lu.buyvm.net/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Roost, LU	BuyVM	$slsjc " | tee -a $HOME/bench.log
+	slwdc=$( wget -4 -O /dev/null http://lg.nl.ramnode.com/static/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Alblasserdam, NL RamNode 	$slwdc " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
