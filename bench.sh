@@ -69,8 +69,6 @@ speedtest4 () {
 	echo "" | tee -a $HOME/bench.log
 	cachefly=$( wget -4 -O /dev/null http://cachefly.cachefly.net/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Cachefly (CDN): $cachefly" | tee -a $HOME/bench.log
-	echo "" | tee -a $HOME/bench.log
-	
 	digitalocean_ams3=$( wget -4 -O /dev/null http://speedtest-ams3.digitalocean.com/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "DigitalOcean (Amsterdam, NL): $digitalocean_ams3 " | tee -a $HOME/bench.log
 	softlayer_ams3=$( wget -4 -O /dev/null http://speedtest.ams03.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
