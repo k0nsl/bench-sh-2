@@ -66,7 +66,6 @@ speedtest4 () {
 	echo "Your public IPv4 is $ipiv" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	echo "---------------------" | tee -a $HOME/bench.log
-	echo "Speed test"	| tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	cachefly=$( wget -4 -O /dev/null http://cachefly.cachefly.net/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Cachefly (CDN): $cachefly" | tee -a $HOME/bench.log
