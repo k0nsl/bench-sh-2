@@ -72,15 +72,15 @@ speedtest4 () {
 	echo "" | tee -a $HOME/bench.log
 	# United States speed test
 	digitalocean_ams3=$( wget -4 -O /dev/null http://speedtest-ams3.digitalocean.com/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Amsterdam, NL		Coloat		$digitalocean_ams3 " | tee -a $HOME/bench.log
+	echo "Amsterdam, NL		DigitalOcean		$digitalocean_ams3 " | tee -a $HOME/bench.log
 	softlayer_ams3=$( wget -4 -O /dev/null http://speedtest.ams03.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Amsterdam, NL		Softlayer	$softlayer_ams3 " | tee -a $HOME/bench.log
-	slwa=$( wget -4 -O /dev/null http://beta.60ych.net/100mbtest 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Rochester, US		k0nslNET01	$slwa " | tee -a $HOME/bench.log
-	slsjc=$( wget -4 -O /dev/null http://speedtest.lu.buyvm.net/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Roost, LU	BuyVM	$slsjc " | tee -a $HOME/bench.log
-	slwdc=$( wget -4 -O /dev/null http://lg.nl.ramnode.com/static/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Alblasserdam, NL RamNode 	$slwdc " | tee -a $HOME/bench.log
+	k0nslNET=$( wget -4 -O /dev/null http://beta.60ych.net/100mbtest 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Rochester, US		k0nslNET01	$k0nslNET " | tee -a $HOME/bench.log
+	buyvm=$( wget -4 -O /dev/null http://speedtest.lu.buyvm.net/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Roost, LU	BuyVM	$buyvm " | tee -a $HOME/bench.log
+	ramnode=$( wget -4 -O /dev/null http://lg.nl.ramnode.com/static/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Alblasserdam, NL RamNode 	$ramnode " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
