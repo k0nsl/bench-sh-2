@@ -78,9 +78,9 @@ speedtest4 () {
 	k0nslNET=$( wget -4 -O /dev/null http://beta.60ych.net/100mbtest 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Rochester, US		k0nslNET01	$k0nslNET " | tee -a $HOME/bench.log
 	buyvm=$( wget -4 -O /dev/null http://speedtest.lu.buyvm.net/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Roost, LU	BuyVM	$buyvm " | tee -a $HOME/bench.log
+	echo "Roost, LU			BuyVM	$buyvm " | tee -a $HOME/bench.log
 	ramnode=$( wget -4 -O /dev/null http://lg.nl.ramnode.com/static/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Alblasserdam, NL RamNode 	$ramnode " | tee -a $HOME/bench.log
+	echo "Alblasserdam, NL		RamNode 	$ramnode " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
