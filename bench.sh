@@ -69,16 +69,16 @@ speedtest4 () {
 	echo "" | tee -a $HOME/bench.log
 	cachefly=$( wget -4 -O /dev/null http://cachefly.cachefly.net/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "Cachefly (CDN): $cachefly" | tee -a $HOME/bench.log
-	digitalocean_ams3=$( wget -4 -O /dev/null http://speedtest-ams3.digitalocean.com/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "DigitalOcean (Amsterdam, NL): $digitalocean_ams3 " | tee -a $HOME/bench.log
-	softlayer_ams3=$( wget -4 -O /dev/null http://speedtest.ams03.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "Softlayer (Amsterdam, NL): $softlayer_ams3 " | tee -a $HOME/bench.log
+	digitalocean_ams3=$( wget -4 -O /dev/null http://speedtest-nyc3.digitalocean.com/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "DigitalOcean (New York, US): $digitalocean_ams3 " | tee -a $HOME/bench.log
+	softlayer_ams3=$( wget -4 -O /dev/null http://speedtest.dal09.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "Softlayer (Dallas, USA): $softlayer_ams3 " | tee -a $HOME/bench.log
 	k0nslNET=$( wget -4 -O /dev/null http://beta.60ych.net/100mbtest 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
 	echo "CentriLogic (Rochester, US): $k0nslNET " | tee -a $HOME/bench.log
-	buyvm=$( wget -4 -O /dev/null http://speedtest.lu.buyvm.net/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "BuyVM (Roost, LU): $buyvm " | tee -a $HOME/bench.log
-	ramnode=$( wget -4 -O /dev/null http://lg.nl.ramnode.com/static/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-	echo "RamNode (Alblasserdam, NL): $ramnode " | tee -a $HOME/bench.log
+	buyvm=$( wget -4 -O /dev/null http://speedtest.lv.buyvm.net/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "BuyVM (Las Vegas, US): $buyvm " | tee -a $HOME/bench.log
+	ramnode=$( wget -4 -O /dev/null http://lg.la.ramnode.com/static/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+	echo "RamNode (Los Angeles, US): $ramnode " | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 	echo "" | tee -a $HOME/bench.log
 }
